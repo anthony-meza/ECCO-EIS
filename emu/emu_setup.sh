@@ -98,7 +98,7 @@ while true; do
     set +e
 
     # Check credentials using wget --spider
-    OUTPUT=$(wget --spider --user="$Earthdata_username" --password="$WebDAV_password" "$URL" 2>&1)
+    OUTPUT=$(wget --no-check-certificate --spider --user="$Earthdata_username" --password="$WebDAV_password" "$URL" 2>&1)
 
     # Enable exit on error
     set -e 
