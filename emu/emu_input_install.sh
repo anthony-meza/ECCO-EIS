@@ -159,6 +159,7 @@ goto_download_indiv() {
     # Perform download and append to log
     wget -r -np -nH -N -c \
         --no-verbose \
+	--no-check-certificate \
 	--reject "index.html*" \
 	--retry-connrefused --tries=10 --waitretry=5 \
 	$exclude_opt \
