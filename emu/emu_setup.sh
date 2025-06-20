@@ -628,7 +628,7 @@ goto_singularity() {
     echo "Installing EMU Singularity image (emu.sif) in directory "
     echo ${emu_dir}
     echo
-    wget -P ${emu_dir} -r --no-parent --user $Earthdata_username \
+    wget -P ${emu_dir} -r --no-parent --no-check-certificate --user $Earthdata_username \
 	--password $WebDAV_password -nH \
 	--cut-dirs=8 https://ecco.jpl.nasa.gov/drive/files/Version4/Release4/other/flux-forced/emu_input/emu_misc/emu.sif 
     chmod a+x ${emu_dir}/emu.sif
