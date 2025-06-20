@@ -536,7 +536,7 @@ goto_native() {
     cd ${emu_dir}
     log_file="${setup_dir}/download_emu_source.log"
    (
-    git clone https://github.com/ECCO-GROUP/ECCO-EIS.git 
+    git clone https://https://github.com/anthony-meza/ECCO-EIS.git 
     mv ECCO-EIS/emu .  
     rm -rf ECCO-EIS  
 #    tar -xvf /net/b230-304-t3/ecco_nfs_1/shared/EMU/singularity8/emu.tar
