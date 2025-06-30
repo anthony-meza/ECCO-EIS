@@ -1,0 +1,33 @@
+In this directory are pbs* scripts that 
+are configured to be used with a SLURM scheduler. 
+
+To get this to run with EMU, install EMU as normal. 
+
+Then, you may copy these files over to
+EMU_DIR/emu_userinterace. 
+
+To configure these files, you must run ./emu_env.sh again. 
+
+Finally, some pbs* scripts may require you to specify a number of nodes and even wall hours. These can be located at: 
+
+1. emu_dir/emu/emu_input/nproc/{NPROCS}/PBS_nodes
+
+Below is an example of PBS_nodes for NPROCS = 96, which you can 
+use to replace PBS_TASKS with this set of CP:
+PBS -l select=3:ncpus=40:model=sky_ele
+
+Which, equivalently would be 
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=40
+But keep in mind each system is different, so --ntasks-per-node may vary as well. 
+
+2. emu_dir/emu/emu_input/nproc/{NPROCS}/mitgcm_timing.nml
+
+Below is an example of mitgcm_timing.nml for NPROC=96:
+&mitgcm_timing
+  nproc = 96
+  hour26yr_trc =   4 (hours for the tracer tool)
+  hour26yr_fwd =  18 (hours for the forward gradient tool)
+  hour26yr_adj = 162  (hours for the adjoint tool)
+
+

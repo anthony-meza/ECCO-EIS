@@ -95,9 +95,13 @@ returndir=$PWD
 
 read dummy < ./budg.dir_out
 rundir=${PWD}/${dummy}/temp
-
 sed -i -e "s|YOURDIR|${rundir}|g" ./pbs_budg.sh
 sed -i -e "s|SOURCEDIR|${source_dir}|g" ./pbs_budg.sh
+sed -i -e "s|EMU_NPROC|${nprocs}|g" ./pbs_budg.sh
+sed -i -e "s|EMU_INPUT_DIR|${emu_input_dir}|g" ./pbs_budg.sh
+sed -i -e "s|SINGULARITY_IMAGE|${singularity_image}|g" ./pbs_budg.sh
+sed -i -e "s|NATIVE_MPIEXEC|${native_mpiexec}|g" ./pbs_budg.sh
+
 mv ./pbs_budg.sh ${rundir}
 
 cd ${rundir}
